@@ -64,7 +64,7 @@ export default {
       if (this.username) {
         if (this.password) {
           // 发送ajax请求,注意要修改请求方式！！！
-          axios.get('../assets/json/test.json', {
+          axios.get('/test.json', {
             telephone: this.username,
             password: this.password
           }).then(res => {
