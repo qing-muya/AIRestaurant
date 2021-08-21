@@ -7,6 +7,7 @@
                   <template slot="title">
                       <span class="iconfont icon-home1"></span>
                       首页
+                      <div class="home" @click.stop="handleHome"></div>
                   </template>
               </Submenu>
               <Submenu name="2" class="submenu">
@@ -38,6 +39,7 @@
                   <template slot="title">
                       <span class="iconfont icon-tianping"></span>
                       菜品管理
+                      <div class="dish" @click.stop="handleDish"></div>
                   </template>
               </Submenu>
           </Menu>
@@ -54,16 +56,26 @@ export default {
     }
   },
   methods: {
+    // 跳转至首页
     handleHome () {
-      this.$router.push('/index/home')
-      console.log(11)
+      if (this.$router.app._route.path !== '/index/home') {
+        this.$router.push('/index/home')
+        console.log(11)
+      }
+    },
+    // 跳转至菜品管理页
+    handleDish () {
+      if (this.$router.app._route.path !== '/index/dish') {
+        this.$router.push('/index/dish')
+        console.log(22)
+      }
     },
     handleOpenChange (e) {
-      console.log(e)
+      console.log('打开菜单栏', e)
     },
 
     handleSelectMenu (e) {
-      console.log(e)
+      console.log('选择菜单', e)
     }
   }
 }
@@ -74,12 +86,22 @@ export default {
   overflow: hidden;
   width: 230px;
   .submenu {
+    position: relative;
     font-size: 18px;
     color: #999999;
     background-color: #f4f4f4;
     // .ivu-menu-submenu-title {
     //   padding: 16px 24px!important;
     // }
+    .home, .dish {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      // float: left;
+      height: 100%;
+      width: 100%;
+    }
     .iconfont {
       margin-right: 5px;
     }

@@ -87,51 +87,13 @@
       <Layout>
         <Sider hide-trigger :style="{background: '#fff',
         width: '230px',minWidth: '230px', maxWidth: '230px', flex: '0 0 230px'}" class="siderbar">
-          <Menu width="230px">
-            <Submenu name="1" class="submenu">
-              <template slot="title">
-                <span class="iconfont icon-home1"></span>
-                首页
-              </template>
-            </Submenu>
-            <Submenu name="2" class="submenu">
-              <template slot="title">
-                <span class="iconfont icon-thin-_newspaper_"></span>
-                反馈管理
-              </template>
-              <MenuItem name="2-1" class="menuitem" to="/index/assess">用户评分管理</MenuItem>
-              <MenuItem name="2-2" class="menuitem" to="/index/complaint">用户投诉管理</MenuItem>
-            </Submenu>
-            <Submenu name="3" class="submenu">
-              <template slot="title">
-                <span class="iconfont icon-yonghu1"></span>
-                用户管理
-              </template>
-              <MenuItem name="3-1" class="menuitem" to="/index/user">用户信息</MenuItem>
-              <MenuItem name="3-2" class="menuitem" to="/index/order">订单信息</MenuItem>
-            </Submenu>
-            <Submenu name="4" class="submenu">
-              <template slot="title">
-                <span class="iconfont icon-tongji"></span>
-                数据统计
-              </template>
-              <MenuItem name="4-1" class="menuitem" to="/index/income">收支统计</MenuItem>
-              <MenuItem name="4-2" class="menuitem" to="/index/like">菜品喜爱统计</MenuItem>
-              <MenuItem name="4-3" class="menuitem" to="/index/caloric">菜品热量统计</MenuItem>
-            </Submenu>
-            <Submenu name="5" class="submenu">
-              <template slot="title">
-                <span class="iconfont icon-tianping"></span>
-                菜品管理
-              </template>
-            </Submenu>
-          </Menu>
+          <Navbar></Navbar>
         </Sider>
         <Layout :style="{backgroundColor: '#f9f9f9'}">
             <Content>
                 <!-- <router-view></router-view> -->
                 <template>
-                  <Scroll :on-reach-bottom="handleReachBottom" :height="vh">
+                  <Scroll :height="vh" id="scroll">
                       <router-view></router-view>
                   </Scroll>
               </template>
@@ -142,14 +104,27 @@
   </div>
 </template>
 <script>
+import Navbar from '../components/Navbar.vue'
 export default {
   data () {
     return {
       vh: null
     }
   },
+  components: {
+    Navbar
+  },
   mounted () {
     this.vh = document.documentElement.clientHeight - 54
   }
 }
 </script>
+
+<style scoped lang='less'>
+#id {
+  .ivu-scroll-loader {
+    display: none!important;;
+    height: 0!important;
+  }
+}
+</style>
