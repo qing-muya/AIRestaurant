@@ -80,7 +80,9 @@
                 </div>
               </div>
             </div>
-            <div class="table"></div>
+            <div class="table">
+              <Table :width1="'525px'" :head="tableHead" :body="tableData"></Table>
+            </div>
           </template>
         </DetailCard>
         <DetailCard id="classify" width="565px">
@@ -101,11 +103,76 @@
 <script>
 import Title from '../../components/Title.vue'
 import DetailCard from '../../components/DetailCard.vue'
+import Table from '../../components/Table.vue'
 
 export default {
   components: {
     Title,
-    DetailCard
+    DetailCard,
+    Table
+  },
+  data () {
+    return {
+      // 热门搜索的表
+      tableHead: [
+        {
+          title: '编号',
+          key: 'index',
+          width: 100,
+          align: 'center'
+        },
+        {
+          title: '搜索关键词',
+          key: 'word',
+          width: 150,
+          align: 'center'
+        },
+        {
+          title: '用户数',
+          key: 'num',
+          width: 130,
+          align: 'center'
+        },
+        {
+          title: '周涨幅',
+          key: 'increase',
+          width: 142,
+          align: 'center'
+        }
+      ],
+      tableData: [
+        {
+          index: '1',
+          word: '菜品',
+          num: '2,234',
+          increase: '128%'
+        },
+        {
+          index: '2',
+          word: '菜品',
+          num: '2,234',
+          increase: '128%'
+        },
+        {
+          index: '3',
+          word: '菜品',
+          num: '2,234',
+          increase: '128%'
+        },
+        {
+          index: '4',
+          word: '菜品',
+          num: '2,234',
+          increase: '128%'
+        },
+        {
+          index: '5',
+          word: '菜品',
+          num: '2,234',
+          increase: '128%'
+        }
+      ]
+    }
   }
 }
 </script>
@@ -205,6 +272,7 @@ export default {
       .stats {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 20px;
         .total, .each {
           .text {
             margin-bottom: 5px;

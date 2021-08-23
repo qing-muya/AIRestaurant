@@ -5,7 +5,7 @@
         <span>用户信息</span>
       </template>
     </Title>
-    <BaseTable :chooseComponent="tableObj"></BaseTable>
+    <BaseTable :chooseComponent="tableObj" url="/user.json"></BaseTable>
   </div>
 </template>
 
@@ -47,139 +47,49 @@ export default {
           },
           {
             title: '用户名',
-            key: 'name',
+            key: 'cName',
             width: 150,
             align: 'center'
           },
           {
             title: '用户电话',
-            key: 'tel',
+            key: 'cPhone',
             width: 160,
             align: 'center'
           },
           {
             title: '性别',
-            key: 'sex',
+            key: 'cSex',
             width: 80,
             align: 'center',
             tooltip: true
           },
           {
             title: '密码',
-            key: 'passwd',
+            key: 'cPassword',
             width: 150,
             align: 'center'
           },
           {
             title: '注册时间',
-            key: 'time',
+            key: 'cTime',
             width: 200,
             align: 'center'
           },
           {
             title: '设置',
-            key: 'action',
-            width: 100,
+            slot: 'action',
+            width: 120,
             align: 'center'
           }
         ],
-        tableData: [
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            sex: '女',
-            passwd: 'casc12132',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          }
-        ],
-        tableWidth: '966',
+        tableWidth: '986',
         haveSelect: true,
         haveSearch: true,
         havePage: true,
-        haveDate: true
+        haveDate: true,
+        isBorder: true,
+        isStripe: true
       }
     }
   },

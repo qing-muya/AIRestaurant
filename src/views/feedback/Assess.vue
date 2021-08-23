@@ -5,7 +5,7 @@
         <span>用户评分管理</span>
       </template>
     </Title>
-    <BaseTable :chooseComponent="tableObj"></BaseTable>
+    <BaseTable :chooseComponent="tableObj" url='/evaluate.json'></BaseTable>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
         tableHead: [
           {
             title: '编号',
-            key: 'num',
+            key: 'cumstomerId',
             width: 70,
             align: 'center'
           },
@@ -62,108 +62,18 @@ export default {
           },
           {
             title: '设置',
-            key: 'action',
-            width: 100,
+            slot: 'action',
+            width: 120,
             align: 'center'
           }
         ],
-        tableData: [
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          },
-          {
-            num: 1,
-            orderId: '4235147232165228',
-            menuId: '1001621891',
-            opnion: '点击查看->',
-            score: '5.0',
-            time: '2019-06-15 22:48:47',
-            action: '结束'
-          }
-        ],
-        tableWidth: '982',
+        tableWidth: '1002',
         haveSelct: true,
         haveSearch: true,
         havePage: true,
-        haveDate: true
+        haveDate: true,
+        isBorder: true,
+        isStripe: true
       }
     }
   },

@@ -5,7 +5,8 @@
         <span>用户投诉管理</span>
       </template>
     </Title>
-    <BaseTable :chooseComponent="tableObj"></BaseTable>
+    <BaseTable :chooseComponent="tableObj" url="/feedback.json
+    "></BaseTable>
   </div>
 </template>
 
@@ -42,19 +43,19 @@ export default {
           },
           {
             title: '用户名',
-            key: 'name',
+            key: 'cumstomerName',
             width: 150,
             align: 'center'
           },
           {
             title: '用户电话',
-            key: 'tel',
+            key: 'cumstomerPhone',
             width: 200,
             align: 'center'
           },
           {
             title: '投诉内容',
-            key: 'content',
+            key: 'complaint',
             width: 150,
             align: 'center',
             tooltip: true
@@ -62,6 +63,7 @@ export default {
           {
             title: '状态',
             key: 'status',
+            slot: 'status_c',
             width: 120,
             align: 'center'
           },
@@ -73,108 +75,18 @@ export default {
           },
           {
             title: '设置',
-            key: 'action',
-            width: 100,
+            slot: 'action',
+            width: 120,
             align: 'center'
           }
         ],
-        tableData: [
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          },
-          {
-            num: 1,
-            name: 'xiaocong',
-            tel: '12345687910',
-            content: '点击查看->',
-            status: '已反馈',
-            time: '2021/08/19',
-            action: '删除'
-          }
-        ],
-        tableWidth: '992',
+        tableWidth: '1012',
         haveSelect: true,
         haveSearch: true,
         havePage: true,
-        haveDate: true
+        haveDate: true,
+        isBorder: true,
+        isStripe: true
       }
     }
   },

@@ -5,7 +5,7 @@
         <span>订单信息</span>
       </template>
     </Title>
-    <BaseTable :chooseComponent="tableObj"></BaseTable>
+    <BaseTable :chooseComponent="tableObj" url='/order.json'></BaseTable>
   </div>
 </template>
 
@@ -40,146 +40,56 @@ export default {
             align: 'center'
           },
           {
-            title: '编号',
-            key: 'num',
-            width: 70,
+            title: '订单编号',
+            key: 'orderId',
+            width: 150,
             align: 'center'
           },
           {
             title: '用户信息',
-            key: 'u_msg',
+            key: 'comsumerMsg',
             width: 150,
             align: 'center'
           },
           {
             title: '订单总价',
-            key: 'total',
+            key: 'orderTotalPrice',
             width: 120,
             align: 'center'
           },
           {
             title: '订单状态',
-            key: 'status',
+            slot: 'status_o',
             width: 100,
             align: 'center',
             tooltip: true
           },
           {
             title: '菜品信息',
-            key: 'd_msg',
+            key: 'dishMsg',
             width: 150,
             align: 'center'
           },
           {
             title: '下单时间',
-            key: 'time',
+            key: 'orderTime',
             width: 200,
             align: 'center'
           },
           {
             title: '设置',
-            key: 'action',
-            width: 100,
+            slot: 'action',
+            width: 120,
             align: 'center'
           }
         ],
-        tableData: [
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          },
-          {
-            num: 1,
-            u_msg: '点击查看->',
-            total: '￥100',
-            status: '未完成',
-            d_msg: '点击查看->',
-            time: '2019-06-15 22:48:47',
-            action: '删除'
-          }
-        ],
-        tableWidth: '946',
+        tableWidth: '1046',
         haveSelect: true,
         haveSearch: true,
         havePage: true,
-        haveDate: true
+        haveDate: true,
+        isBorder: true,
+        isStripe: true
       }
     }
   },

@@ -7,10 +7,10 @@
       <Search v-show="chooseComponent.haveSearch"></Search>
     </div>
     <div class="table w">
-      <Table :head="chooseComponent.tableHead" :body="chooseComponent.tableData" :width1="chooseComponent.tableWidth"></Table>
+      <Table :isBorder="chooseComponent.isBorder" :isStripe="chooseComponent.isStripe" :head="chooseComponent.tableHead" :body="tableData" :width1="chooseComponent.tableWidth" :editText="edit" :delText="del"></Table>
     </div>
     <div class="page w">
-      <Page></Page>
+      <Page @returnPage="handleReturnPage" :totalData="pageDataLength"></Page>
     </div>
   </div>
 </template>
@@ -21,12 +21,31 @@ import Date from './Date.vue'
 import Search from './Search.vue'
 import Table from './Table.vue'
 import Page from './Page.vue'
+import axios from 'axios'
 export default {
   props: {
+    // 请求数据url
+    url: {
+      type: String,
+      default: null
+    },
+    // 设置框文字
+    edit: {
+      type: String,
+      default: '编辑'
+    },
+    del: {
+      type: String,
+      default: '删除'
+    },
     chooseComponent: {
       type: Object,
       // eslint-disable-next-line vue/require-valid-default-prop
       default: {
+        // 表格是否有边框
+        isBorder: true,
+        // 表格是否有间隔色
+        isStripe: true,
         // 是否有下拉选项框
         haveSelect: true,
         // 下拉选项框默认提示文字,
@@ -58,7 +77,13 @@ export default {
   data () {
     return {
       // 下拉选项框选择后对应的返回值
-      selectValue: ''
+      selectValue: '',
+      // 表格总数据长度
+      pageDataLength: 0,
+      // 获取到的全部表格数据
+      allTableData: [],
+      // 表格内显示的10条数据
+      tableData: []
     }
   },
   methods: {
@@ -66,7 +91,19 @@ export default {
       // 拿到下拉选项的选中值
       this.status = e
       // 发送ajax请求
+    },
+    handleReturnPage (data) {
+      this.tableData = this.allTableData.slice((data - 1) * 10, data * 10)
     }
+  },
+  mounted () {
+    axios.get(this.url).then(res => {
+      this.pageDataLength = res.data.result.array.length
+      this.allTableData = res.data.result.array
+      var table = this.allTableData.slice(0, 10)
+      this.tableData = table
+      console.log(this.tableData)
+    })
   }
 }
 </script>
