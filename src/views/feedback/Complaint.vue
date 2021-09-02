@@ -6,7 +6,7 @@
       </template>
     </Title>
     <BaseTable :chooseComponent="tableObj" url="/feedback.json
-    "></BaseTable>
+    " edit="反馈" del="结束"></BaseTable>
   </div>
 </template>
 

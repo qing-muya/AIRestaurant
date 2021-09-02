@@ -1,12 +1,14 @@
 <template>
   <div class="container">
     <div class="search_condition w">
+      <Select class="select" v-show="chooseComponent.new" :text="chooseComponent.dishClassify" :itemArray="chooseComponent.dishArr" @select="handleSelectValue"></Select>
       <Select class="select" v-show="chooseComponent.haveSelect" :text="chooseComponent.selectText" :itemArray="chooseComponent.selectArr" @select="handleSelectValue"></Select>
-      <Date class="select" v-show="chooseComponent.haveDate"></Date>
-      <Button type="primary" class="button" v-show="chooseComponent.haveDate || chooseComponent.haveSelect"><span class="iconfont icon-loudou"></span>筛选</Button>
-      <Search v-show="chooseComponent.haveSearch"></Search>
+      <Date class="select" v-show="chooseComponent.haveDate" @getDate="getDateChoose"></Date>
+      <Button type="primary" class="button" v-show="chooseComponent.haveDate || chooseComponent.haveSelect" @click="handleClickSelect"><span class="iconfont icon-loudou"></span>筛选</Button>
+      <Search v-show="chooseComponent.haveSearch" @getSearch="handleSearch"></Search>
+      <slot name="new"></slot>
     </div>
-    <div class="table w">
+    <div class="table w" :style="style1">
       <Table :isBorder="chooseComponent.isBorder" :isStripe="chooseComponent.isStripe" :head="chooseComponent.tableHead" :body="tableData" :width1="chooseComponent.tableWidth" :editText="edit" :delText="del"></Table>
     </div>
     <div class="page w">
@@ -65,6 +67,10 @@ export default {
         // 是否有分页器
         havePage: true
       }
+    },
+    style1: {
+      type: String,
+      default: null
     }
   },
   components: {
@@ -78,6 +84,10 @@ export default {
     return {
       // 下拉选项框选择后对应的返回值
       selectValue: '',
+      // 日历选择器选择后对应的日期
+      date: '',
+      // 搜索框内容
+      search: '',
       // 表格总数据长度
       pageDataLength: 0,
       // 获取到的全部表格数据
@@ -89,11 +99,27 @@ export default {
   methods: {
     handleSelectValue (e) {
       // 拿到下拉选项的选中值
-      this.status = e
+      this.selectValue = e
       // 发送ajax请求
     },
+    // 处理分页
     handleReturnPage (data) {
       this.tableData = this.allTableData.slice((data - 1) * 10, data * 10)
+    },
+    // 拿到选择后的日期
+    getDateChoose (date) {
+      this.date = date
+    },
+    // 拿到搜索框输入内容
+    handleSearch (data) {
+      this.search = data
+      console.log(this.search)
+      // 发送请求
+    },
+    // 处理点击筛选按钮
+    handleClickSelect () {
+      // 拿到选择条件，发送请求进行筛选，给tableData进行赋值
+      console.log('selectValue:', this.selectValue, 'date:', this.date)
     }
   },
   mounted () {
@@ -102,7 +128,6 @@ export default {
       this.allTableData = res.data.result.array
       var table = this.allTableData.slice(0, 10)
       this.tableData = table
-      console.log(this.tableData)
     })
   }
 }
@@ -132,7 +157,10 @@ export default {
       margin-right: 120px;
       .icon-loudou {
       font-size: 14px;
+      }
     }
+    .new {
+      margin-left: 50px;
     }
   }
   .table {

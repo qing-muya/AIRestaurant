@@ -12,6 +12,7 @@ import Income from '../views/stats/Income.vue'
 import Like from '../views/stats/Like.vue'
 import Caloric from '../views/stats/Caloric.vue'
 import Dish from '../views/dishes/Dish.vue'
+import NewDish from '../views/dishes/NewDish.vue'
 
 Vue.use(VueRouter) // 注册路由，在注册时vue就自动生成了一个全局组件router-view
 
@@ -61,15 +62,19 @@ const routes = [
         component: Dish
       },
       {
+        path: 'newDish',
+        component: NewDish
+      },
+      {
         path: '*',
         component: Home
       }
     ]
+  },
+  {
+    path: '*',
+    redirect: '/login'
   }
-  // {
-  //   path: '*',
-  //   redirect: '/login'
-  // }
   // {
   //   path: '/feedback',
   //   // component: Assess

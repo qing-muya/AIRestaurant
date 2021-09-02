@@ -87,7 +87,7 @@ export default {
   width: 230px;
   .submenu {
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
     color: #999999;
     background-color: #f4f4f4;
     // .ivu-menu-submenu-title {

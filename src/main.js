@@ -10,5 +10,9 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  // 添加App组件
+  components: {
+    App
+  }
 }).$mount('#app')

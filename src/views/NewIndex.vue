@@ -6,7 +6,7 @@
   background: #f5f7f9;
   .header {
     height: 54px;
-    line-height: 54px;
+    line-height: 50px;
     padding: 0 20px;
     background-color: #464c5b;
     .menu {
@@ -38,6 +38,9 @@
           color: #fff;
         }
       }
+    }
+    .ivu-menu-horizontal {
+      line-height: 54px!important;
     }
   }
   .siderbar {
@@ -115,7 +118,13 @@ export default {
     Navbar
   },
   mounted () {
-    this.vh = document.documentElement.clientHeight - 54
+    this.vh = document.documentElement.clientHeight - 55
+    // console.log(this.vh)
+    // console.log(document.documentElement)
+    // window.οnresize = function () {
+    //   this.vh = document.documentElement.clientHeight - 54
+    //   console.log(this.vh)
+    // }
   }
 }
 </script>

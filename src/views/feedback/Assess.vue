@@ -5,7 +5,7 @@
         <span>用户评分管理</span>
       </template>
     </Title>
-    <BaseTable :chooseComponent="tableObj" url='/evaluate.json'></BaseTable>
+    <BaseTable :chooseComponent="tableObj" url='/evaluate.json' edit="修改" del="结束"></BaseTable>
   </div>
 </template>
 
